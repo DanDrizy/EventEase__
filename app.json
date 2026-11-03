@@ -1,25 +1,53 @@
 {
   "expo": {
-    "name": "app",
-    "slug": "app",
+    "name": "HICs",
+    "slug": "vocal-coach",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "dark",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "UIBackgroundModes": []
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#12121A",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.anonymous.vocalcoach"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-system-ui",
+      [
+        "react-native-audio-api",
+        {
+          "iosMicrophonePermission": "Vocal Coach uses your microphone to record coach vocal exercises.",
+          "iosBackgroundMode": false,
+          "androidPermissions": [
+            "android.permission.RECORD_AUDIO"
+          ],
+          "androidForegroundService": false,
+          "androidFSTypes": [
+            "microphone"
+          ],
+          "disableFFmpeg": false,
+          "disableStaticExternalLibs": false
+        }
+      ],
+      "expo-sharing",
+      "expo-font"
+    ]
   }
 }
